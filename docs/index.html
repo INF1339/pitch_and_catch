@@ -6,7 +6,6 @@
     .table_entry  {font-family: sans-serif; text-align: center;}
 </style>
 <script>
-
     
    
     
@@ -23,7 +22,6 @@ function pick_from (set) {
     console.log('NO PICK from ', set)
     return(-1)
 }
-
     
     
     function another_way() {
@@ -44,7 +42,7 @@ function pick_from (set) {
           for (i=0; i<number_of_sessions; i++) {
               var groups = []
               for (j=0; j<number_of_groups; j++) {
-                  groups.push({pitcher: i*10+j, facilitator: i*10+j, catchers: [i*10+j,i*10+j]})
+                  groups.push({pitcher: i*number_of_sessions+j, facilitator: i*number_of_sessions+j, catchers: [i*number_of_sessions+j,i*number_of_sessions+j]})
                   students[i*number_of_sessions+j] = i*number_of_sessions+j
               }
               sessions.push(groups)
@@ -57,8 +55,8 @@ function pick_from (set) {
             
             
               for (j=0; j<number_of_groups; j++) {
-                  sessions[i][j].pitcher = i * number_of_sessions + j   
-                  sessions[i][j].facilitator = (i * number_of_sessions + j + number_of_groups) % (number_of_sessions * number_of_groups)
+                  sessions[i][j].pitcher = i * number_of_groups + j   
+                  sessions[i][j].facilitator = (i * number_of_groups + j + number_of_groups) % (number_of_sessions * number_of_groups)
                   //remove the pitcher and facilitator from available to catch this session
                   catcher_pool.delete(sessions[i][j].pitcher)
                   catcher_pool.delete(sessions[i][j].facilitator)
@@ -109,4 +107,3 @@ function pick_from (set) {
 <div id="output"></div>
 </body>
 </html>
-
