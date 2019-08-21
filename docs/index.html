@@ -58,7 +58,7 @@ function pick_from (set) {
             
               for (j=0; j<number_of_groups; j++) {
                   sessions[i][j].pitcher = i * number_of_sessions + j   
-                  sessions[i][j].facilitator = (i * number_of_sessions + j + 4) % 16
+                  sessions[i][j].facilitator = (i * number_of_sessions + j + 4) % (number_of_sessions * number_of_groups)
                   //remove the pitcher and facilitator from available to catch this session
                   catcher_pool.delete(sessions[i][j].pitcher)
                   catcher_pool.delete(sessions[i][j].facilitator)
