@@ -45,7 +45,7 @@ function pick_from (set) {
               var groups = []
               for (j=0; j<number_of_groups; j++) {
                   groups.push({pitcher: i*10+j, facilitator: i*10+j, catchers: [i*10+j,i*10+j]})
-                  students[i*number_of_groups+j] = i*number_of_groups+j
+                  students[i*number_of_sessions+j] = i*number_of_sessions+j
               }
               sessions.push(groups)
           }
@@ -93,7 +93,7 @@ function pick_from (set) {
                 y = y + "<tr><td colspan='4'><h1>SESSION " + (i+1)+"</h1></td></tr>"
                 y = y + "<tr><td width='150' class='table_header'>Pitcher</td><td width='150' class='table_header'>Facilitator/Catcher</td><td colspan='2' width='300' class='table_header'>Catchers</td></tr>"
                 for (j=0; j<number_of_groups; j++){
-                    y = y + "<tr><td class='table_entry'>"+names [sessions[i][j].pitcher]+"</td><td class='table_entry'>"+names [sessions[i][j].facilitator]+"</td><td class='table_entry'>"+names [sessions[i][j].catchers[0]]+"</td><td class='table_entry'>"+names [sessions[i][j].catchers[1]]+"</td></tr>"
+                    y = y + "<tr><td class='table_entry'>"+names[sessions[i][j].pitcher]+"</td><td class='table_entry'>"+names[sessions[i][j].facilitator]+"</td><td class='table_entry'>"+names [sessions[i][j].catchers[0]]+"</td><td class='table_entry'>"+names [sessions[i][j].catchers[1]]+"</td></tr>"
                 }
             }
         y = y + "</table>"
