@@ -101,6 +101,7 @@ function display_pitch_and_catch (data) {
             // 1. if picther is extra, write it as "FREE"
             var p = names[sessions[i][j].pitcher]
             if (p == "EXTRA") {p = "FREE"}
+            p = "T" + j + 1 + " " + p
             var f = names[sessions[i][j].facilitator]
             var c1 = names[sessions[i][j].catchers[0]]
             var c2 = names[sessions[i][j].catchers[1]]
