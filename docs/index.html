@@ -3,7 +3,7 @@
 <head>
 <style>
     .table_header {font-weight: bold; font-family: sans-serif; background-color: azure; text-align: center;}
-    .table_entry  {font-family: sans-serif; text-align: center;}
+    .table_entry  {font-family: sans-serif; text-align: left;}
 </style>
 <script>
     
@@ -101,7 +101,7 @@ function display_pitch_and_catch (data) {
             // 1. if picther is extra, write it as "FREE"
             var p = names[sessions[i][j].pitcher]
             if (p == "EXTRA") {p = "FREE"}
-            p = "T" + j + 1 + " " + p
+            p = "<span style='color:red;'>T" + (j + 1) + "</span> " + p
             var f = names[sessions[i][j].facilitator]
             var c1 = names[sessions[i][j].catchers[0]]
             var c2 = names[sessions[i][j].catchers[1]]
