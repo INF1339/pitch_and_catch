@@ -91,11 +91,11 @@ function display_pitch_and_catch (data) {
     //LATER scan data structure and reassign folks for empty slots
     //LATER if there is an empty pitcher, reassign the catchers
             
-    var y = '<table width="600" border="solid">'  //table
+    var y = '<table width="100%" border="solid">'  //table
             
     for (i=0; i<number_of_sessions; i++) {
         y = y + "<tr><td colspan='4'><h3>SESSION " + (i+1)+"</h3></td></tr>"
-        y = y + "<tr><td width='150' class='table_header'>Pitcher</td><td width='150' class='table_header'>Facilitator/Catcher</td><td colspan='2' width='300' class='table_header'>Catchers</td></tr>"
+        y = y + "<tr><td width='25%' class='table_header'>Pitcher</td><td width='25%' class='table_header'>Facilitator/Catcher</td><td colspan='2' width='50%' class='table_header'>Catchers</td></tr>"
         for (j=0; j<number_of_groups; j++){
             // Kludgy fixes for when we have wrong number of students
             // 1. if picther is extra, write it as "FREE"
