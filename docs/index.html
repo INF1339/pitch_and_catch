@@ -68,9 +68,9 @@ function make_pitch_and_catch_schedule() {
         }
             
         // if multiple EXTRAs listed as pitchers in last session, move them to earlier session
-        // LATER
+        // NOT YET IMPLEMENTED
         // if group has "EXTRA as facilitator, move a catcher to that role
-        // LATER
+        // NOT YET IMPLEMENTED
         for (j=0; j<number_of_groups; j++) {
              //assign catcher and remove from pool
             sessions[i][j].catchers[0] = pick_from (catcher_pool)
@@ -88,23 +88,26 @@ function display_pitch_and_catch (data) {
     var d = document.getElementById('output')
     d.innerHTML = 'x'
             
-    //LATER scan data structure and reassign folks for empty slots
-    //LATER if there is an empty pitcher, reassign the catchers
+    //NOT YET IMPLEMENTED scan data structure and reassign folks for empty slots
+    //NOT YET IMPLEMENTED if there is an empty pitcher, reassign the catchers
             
     var y = '<table width="100%" border="solid">'  //table
-            
+    
+    // NOTE: "EXTRA" means a phantom student we added to make the numbers come out even
     for (i=0; i<number_of_sessions; i++) {
         y = y + "<tr><td colspan='4'><h3>SESSION " + (i+1)+"</h3></td></tr>"
         y = y + "<tr><td width='25%' class='table_header'>Pitcher</td><td width='25%' class='table_header'>Facilitator/Catcher</td><td colspan='2' width='50%' class='table_header'>Catchers</td></tr>"
         for (j=0; j<number_of_groups; j++){
             // Kludgy fixes for when we have wrong number of students
-            // 1. if picther is extra, write it as "FREE"
+            // 1. if pitcher is EXTRA, write it as "FREE SESSION"
             var p = names[sessions[i][j].pitcher]
-            if (p == "EXTRA") {p = "FREE"}
+            if (p == "EXTRA") {p = "NO P, FREE SESSION"}
             p = "<span style='color:red;'>T" + (j + 1) + "</span> " + p
             var f = names[sessions[i][j].facilitator]
             var c1 = names[sessions[i][j].catchers[0]]
             var c2 = names[sessions[i][j].catchers[1]]
+            //if we are missing a facilitator we move a catcher into this role and 
+            //add asterisk to indicate they are doing double duty 
             if (f == "EXTRA") {
                 f = c1+'*'
                 c1 = "EMPTY"
