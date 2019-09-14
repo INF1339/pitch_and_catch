@@ -4,6 +4,8 @@
 <style>
     .table_header {font-weight: bold; font-family: sans-serif; background-color: azure; text-align: center;}
     .table_entry  {font-family: sans-serif; text-align: left;}
+    .blue {background-color: snow;}
+    .beige {background-color: beige;}
 </style>
 <script>
     
@@ -92,6 +94,7 @@ function display_pitch_and_catch (data) {
     //NOT YET IMPLEMENTED if there is an empty pitcher, reassign the catchers
             
     var y = '<table width="100%" border="solid">'  //table
+    var rowcolor = 'beige'
     
     // NOTE: "EXTRA" means a phantom student we added to make the numbers come out even
     for (i=0; i<number_of_sessions; i++) {
@@ -100,6 +103,7 @@ function display_pitch_and_catch (data) {
         for (j=0; j<number_of_groups; j++){
             // Kludgy fixes for when we have wrong number of students
             // 1. if pitcher is EXTRA, write it as "FREE SESSION"
+           
             var p = names[sessions[i][j].pitcher]
             if (p == "EXTRA") {p = "NO P, FREE SESSION"}
             p = "<span style='color:red;'>T" + (j + 1) + "</span> " + p
@@ -112,7 +116,8 @@ function display_pitch_and_catch (data) {
                 f = c1+'*'
                 c1 = "EMPTY"
             }
-            y = y + "<tr><td class='table_entry'>"+p+"</td><td class='table_entry'>"+f+"</td><td class='table_entry'>"+c1+"</td><td class='table_entry'>"+c2+"</td></tr>"
+             if (rowcolor == 'beige') {rowcolor = 'blue'} else {rowcolor = 'beige'}
+            y = y + "<tr><td class='table_entry '"+rowcolor+"'>"+p+"</td><td class='table_entry'>"+f+"</td><td class='table_entry'>"+c1+"</td><td class='table_entry'>"+c2+"</td></tr>"
         }
     }
     y = y + "</table>"
